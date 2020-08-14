@@ -37,10 +37,12 @@ h6 {
 }
 #main-text {
   width: 80%;
-  color: rgba(255, 255, 255, 0.797);
+  color: white;
   font-size: 18px;
   line-height: 1.6;
   font-family: "Lato", sans-serif;
+  text-align: justify;
+  font-weight: bold;
 }
 .learn-more {
   width: 30%;
