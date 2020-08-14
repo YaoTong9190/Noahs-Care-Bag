@@ -31,10 +31,7 @@ body {
 .main {
   background-color: #ef5a28;
 }
-h6 {
-  color: rgba(255, 255, 255, 0.797);
-  padding-right: 25%;
-}
+
 #main-text {
   width: 80%;
   color: white;
@@ -42,7 +39,7 @@ h6 {
   line-height: 1.6;
   font-family: "Lato", sans-serif;
   text-align: justify;
-  font-weight: bold;
+  font-weight: 700px;
 }
 .learn-more {
   width: 30%;
