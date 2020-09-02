@@ -31,82 +31,17 @@ body {
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(239, 90, 40, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-.main {
-  background-color: #ef5a28;
-}
 
-#main-text {
-  width: 90%;
-  color: white;
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: justify;
+#spinner {
+  width: 100px;
+  height: 100px;
+  margin: auto 0;
 }
-.learn-more {
-  width: 45%;
-  margin: auto;
-  color: #65c1e3;
-  border-color: #65c1e3;
+#showlater {
+  display: none;
 }
-#learn-more:hover {
-  background-color: #65c1e3;
-  color: rgba(255, 255, 255, 0.797);
-}
-#picture-partition {
-  display: block;
-  width: auto;
-}
-
-.carousel-item {
-  width: 600px;
-  height: 400px;
-  vertical-align: middle;
-  align-items: center;
-}
-
-#titleone {
-  margin-top: 50px;
-}
-#secondMain {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-#secondImg {
-  height: 500px;
-}
-#secondImg img {
-  margin: auto -100px;
-  float: right;
-  width: 80%;
-}
-#facebook {
-  background-color: #65c1e3;
-  border-color: #65c1e3;
-}
-.card {
-  margin-top: 30px;
-}
-#titletwo {
-  margin-top: 50px;
-}
-#thanknote-bg {
-  background-color: #ef5a28;
-}
-.highlights {
-  color: #fff;
-  background: #c95420;
-  padding: 5px, 5px;
-}
-#thirdMain {
-  height: 300px;
-}
-#thirdMain img {
-  height: 80%;
-  width: 40%;
-}
-
-.btn .btn-primary {
-  background-color: #c95420;
+#icon-checker {
+  width: 150%;
 }
 #footer {
   background-color: #2f2f2f;
@@ -114,6 +49,7 @@ body {
   padding-bottom: 50px;
   position: relative;
   bottom: 0px;
+  display: none;
 }
 
 #footer p {
@@ -128,6 +64,7 @@ body {
 #copyrights {
   position: relative;
   bottom: 0px;
+  display: none;
 }
 #copyrights {
   background: #222222;
