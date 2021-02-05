@@ -171,6 +171,7 @@
                                 <p class="description">Quantity:</p>
                                 <button type="button" class="decrease-btn">-</button>
                                 <input type="text" class="quantity" value="1">
+                                <input type="text" class="paypal_price" value="15" style="display: none;">
                                 <button type="button" class="increase-btn">+</button>
                                 <p class="total">Total: <span id="total">$15</span></p>
                                 <p class="description">This donation is enough to help <span id="family"
@@ -180,10 +181,11 @@
                             </div>
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Confirm Order</button>
+                        <div class="container">
+                            <div id="paypal-button-container"></div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -329,7 +331,15 @@
         </p>
     </div>
     <script type="text/javascript" src="script.js"></script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AaVolgmxR5f62dHVLXCeRiluSKkJBCznS6UjuBkAQn4V4R0exxkOPPoyG8szpewMUSfhYqGdacbnIBIR"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+            $(".quantity").on("change paste keyup", function () {
+                amount = $(this).val();
+            });
+        </script>
+
     <script>
+
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -344,16 +354,46 @@
             var $buttonPlus = $(".increase-btn");
             var $buttonMin = $(".decrease-btn");
             var $quantity = $(".quantity");
+            var $paypal_price = $(".paypal_price");
 
             /*For plus and minus buttons*/
             $buttonPlus.click(function () {
                 $quantity.val(parseInt($quantity.val()) + 1).trigger("input");
+                $paypal_price.val(parseInt($paypal_price.val()) + 15).trigger("input");
             });
 
             $buttonMin.click(function () {
                 $quantity.val(Math.max(parseInt($quantity.val()) - 1, 0)).trigger("input");
             });
         });
+        paypal.Buttons({
+            style: {
+                layout: 'vertical',
+                color: 'blue',
+                shape: 'rect',
+                label: 'paypal'
+            },
+            createOrder: function (data, actions) {
+                // This function sets up the details of the transaction, including the amount and line item details.
+
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: document.getElementsByClassName("paypal_price")[0].value
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                // This function captures the funds from the transaction.
+                return actions.order.capture().then(function (details) {
+                    // This function shows a transaction success message to your buyer.
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
+  //This function displays Smart Payment Buttons on your web page.
+
 
     </script>
 
